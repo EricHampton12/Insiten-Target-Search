@@ -84,7 +84,7 @@ const AddEdit = () => {
   };
 
   return (
-    <div className="add-edit-container" style={{ marginTop: "50px" }}>
+    <div className="add-edit-container" style={{ marginTop: "20px" }}>
       <form
         style={{
           margin: "auto",
