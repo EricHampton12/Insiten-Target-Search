@@ -1,14 +1,11 @@
-.home-container {
-  display: flex;
-  justify-content: center;
-}
-
 .styled-table {
+  overflow: hidden;
+  display: inline-block;
   border-collapse: collapse;
   margin: auto;
   font-size: 0.9rem;
   font-family: sans-serif;
-  max-width: 800px;
+  max-width: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0.15);
 }
 
@@ -25,6 +22,7 @@
 
 .styled-table tbody tr {
   border-bottom: 1px solid #dddddd;
+  vertical-align: top;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
@@ -58,5 +56,26 @@
 
 .btn-view {
   background-color: #e7e7e7;
+  color: black;
+}
+
+.dropdown {
+  width: 20%;
+  margin: 5px;
+  justify-content: center;
+}
+
+.btn-reset {
+  background-color: darkolivegreen;
+  color: black;
+}
+
+.btn-active {
+  background-color: #808c4a;
+  color: black;
+}
+
+.btn-inactive {
+  background-color: #445f61;
   color: black;
 }

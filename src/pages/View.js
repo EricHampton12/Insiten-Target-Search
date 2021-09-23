@@ -23,7 +23,7 @@ const View = () => {
 
   console.log("account", account);
   return (
-    <div style={{ marginTop: "150px" }}>
+    <div style={{ marginTop: "50px" }}>
       <div className="card">
         <div className="card-header">
           <p>Account Details</p>

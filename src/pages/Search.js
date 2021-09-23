@@ -65,33 +65,10 @@ const Search = () => {
             </tbody>
           </table>
         )}
-        <table className="styled-table">
-          <thead>
-            <tr>
-              <th style={{ textAlign: "center" }}>No</th>
-              <th style={{ textAlign: "center" }}>Name</th>
-              <th style={{ textAlign: "center" }}>Status</th>
-              <th style={{ textAlign: "center" }}>Company Info</th>
-              <th style={{ textAlign: "center" }}>Key Contact</th>
-              <th style={{ textAlign: "center" }}>Financial Performance</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.keys(data).map((id, index) => {
-              return (
-                <tr key={id}>
-                  <th scope="row">{index + 1}</th>
-                  <td>{data[id].name}</td>
-                  <td>{data[id].status}</td>
-                  <td>{data[id].companyInfo}</td>
-                  <td>{data[id].keyContact}</td>
-                  <td>{data[id].financialPerformance}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
       </div>
+      <Link to="/">
+        <button className="btn btn-edit"> Go Back </button>
+      </Link>
     </>
   );
 };
