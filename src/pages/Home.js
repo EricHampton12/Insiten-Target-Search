@@ -52,10 +52,30 @@ const Home = () => {
 
   const handleReset = () => {
     setSort(false);
+    fireDb.child("account").on("value", (snapshot) => {
+      if (snapshot.val() !== null) {
+        setData({ ...snapshot.val() });
+      } else {
+        setData({});
+      }
+    });
+  };
+
+  const filterData = (value) => {
+    fireDb
+      .child("account")
+      .orderByChild("status")
+      .equalTo(value)
+      .on("value", (snapshot) => {
+        if (snapshot.val()) {
+          const data = snapshot.val();
+          setData(data);
+        }
+      });
   };
 
   return (
-    <div style={{ marginTop: "50px" }}>
+    <div style={{ marginTop: "20px" }}>
       <table className="styled-table">
         <thead>
           <tr>
@@ -125,10 +145,36 @@ const Home = () => {
           <option value="keyContact">Contact</option>
           <option value="financialPerformance">Financial Performance</option>
         </select>
-        <button className="btn btn-reset" onClick={handleReset}>
-          Reset
-        </button>
+        <Link to="/">
+          <button className="btn btn-reset" onClick={handleReset}>
+            Reset
+          </button>
+        </Link>
         <br />
+        <button
+          className="btn btn-active"
+          onClick={() => filterData("Approved")}
+        >
+          Approved
+        </button>
+        <button
+          className="btn btn-inactive"
+          onClick={() => filterData("Declined")}
+        >
+          Declined
+        </button>
+        <button
+          className="btn btn-research"
+          onClick={() => filterData("Researching")}
+        >
+          Researching
+        </button>
+        <button
+          className="btn btn-pending"
+          onClick={() => filterData("Pending Approval")}
+        >
+          Pending Approval
+        </button>
       </table>
     </div>
   );
